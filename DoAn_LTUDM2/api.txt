@@ -1,0 +1,10 @@
+api product sendo
+
+https://x.o-s.io/sda?a_slot=top&a_type=product&cli_ubid=2a88742e-f4f2-4b0a-9cb5-79ff9e45ba62&client_id=18662&country=VN&currency=VND&keywords%5B0%5D={%C3%A1o}&language=vi&page_type=SEARCH&pcnt=30
+
+lazada
+https://www.lazada.vn/catalog/?_keyori=ss&ajax=true&from=search_history&isFirstRequest=true&page=1&q={%C3%A1o}%20kho%C3%A1c&spm=a2o4n.home.search.1.19053bdcQKtrON&sugg=%C3%A1o_0_1
+
+tiki
+https://tiki.vn/api/v2/products/
+https://tiki.vn/api/v2/reviews?limit=10&product_id=

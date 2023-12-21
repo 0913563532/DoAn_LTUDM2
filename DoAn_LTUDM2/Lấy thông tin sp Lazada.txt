@@ -1,0 +1,42 @@
+Hướng dẫn sử dụng:
+1/ Tìm sản phẩm dựa trên input của người dùng bằng cú pháp: lazada.vn/tag/input/ .Lưu ý 
+khoảng trắng trong input phải được thay bằng "-".
+vd: muốn tìm iphone 14 nhập vào: https://www.lazada.vn/tag/iphone-14/
+
+2/ Lấy list sản phẩm x bằng cú pháp: https://www.lazada.vn/tag/x/?ajax=true&isFirstRequest=true&page=1
+-> kết quả trả về có thể dùng jsoup bóc thông tin file json chứa thông tin sản phẩm có cấu trúc:
+"mods":{
+	.......,
+	"listItems":
+		{
+		"name": -> tên sản phẩm
+		"image":-> hình ảnh sản phẩm
+		"thumbs":{
+			"itemUrl": -> link sản phẩm
+		},
+		........
+		},
+	.......
+}
+3/ Implement
+
+import java.text.Normalizer;
+import java.util.regex.Pattern;
+public class Main
+{
+	//Hàm xóa dấu input
+    public static String removeAccent(String s) {
+        String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(temp).replaceAll("");
+ }
+    public static void main(String[] args) {
+	String input = "iphone 14";
+
+	//xóa dấu và thay thế " " bằng "-"
+	String formatText = removeAccent(input).replace(" ","-");
+	//sử dụng input để lấy list sản phẩm
+	String url= "https://www.lazada.vn/tag/" + formatText + "/?ajax=true&isFirstRequest=true&page=1";
+
+	}
+}
